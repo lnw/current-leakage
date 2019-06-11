@@ -1,0 +1,97 @@
+$gimic
+$title
+$operating system unix
+$symmetry d6h
+$redundant    file=coord
+$user-defined bonds    file=coord
+$coord    file=coord
+$optimize
+ internal   on
+ redundant  on
+ cartesian  off
+ global     off
+ basis      off
+$atoms
+c  1-6                                                                         \
+   basis =c def-SVP
+h  7-12                                                                        \
+   basis =h def-SVP
+$basis    file=basis
+$rundimensions
+   dim(fock,dens)=7404
+   natoms=12
+   nshell=54
+   nbf(CAO)=120
+   dim(trafo[SAO<-->AO/CAO])=968
+   rhfshells=1
+   nbf(AO)=114
+$scfmo   file=mos
+$closed shells
+ a1g     1-3                                    ( 2 )
+ e1g     1                                      ( 2 )
+ e2g     1-3                                    ( 2 )
+ a2u     1                                      ( 2 )
+ b1u     1-2                                    ( 2 )
+ b2u     1                                      ( 2 )
+ e1u     1-3                                    ( 2 )
+$scfiterlimit       30
+$thize     0.10000000E-04
+$thime        5
+$scfdump
+$scfintunit
+ unit=30       size=0        file=twoint
+$scfdiis
+$maxcor    500 MiB  per_core
+$scforbitalshift  automatic=.1
+$drvopt
+   cartesian  on
+   basis      off
+   global     off
+   hessian    on
+   dipole     on
+   nuclear polarizability
+$interconversion  off
+   qconv=1.d-7
+   maxiter=25
+$coordinateupdate
+   dqmax=0.3
+   interpolate  on
+   statistics    5
+$forceupdate
+   ahlrichs numgeo=0  mingeo=3 maxgeo=4 modus=<g|dq> dynamic fail=0.3
+   threig=0.005  reseig=0.005  thrbig=3.0  scale=1.00  damping=0.0
+$forceinit on
+   diag=default
+$energy    file=energy
+$grad    file=gradient
+$forceapprox    file=forceapprox
+$dft
+   functional b-p
+   gridsize   m3
+$scfconv   6
+$scfdamp   start=0.700  step=0.050  min=0.050
+$last step     mpshift
+$last SCF energy change = -.88417977E-07
+$charge from dscf
+          0.000 (not to be modified here)
+$dipole from dscf
+  x     0.00000000000003    y     0.00000000000001    z     0.00000000000000    a.u.
+   | dipole | =    0.0000000000  debye
+$optinfo       file=optinfo
+$hessapprox   file=hessapprox
+$orbital_max_rnorm 0.19844618110057E-04
+$nmr dft shielding constants
+#   NO. TYPE   MULT.     ISOTROPIC        ANISOTROPIC  dD/dB-CONTRIBUTION
+     1   c       6       64.76063440      185.93792023     -186.71236378
+     2   c       0       64.76063440      185.93792023     -186.71236378
+     3   c       0       64.76063440      185.93792023     -186.71236378
+     4   c       0       64.76063440      185.93792023     -186.71236378
+     5   c       0       64.76063440      185.93792023     -186.71236378
+     6   c       0       64.76063440      185.93792023     -186.71236378
+     7   h       6       23.97243527        5.19108716       -6.26880925
+     8   h       0       23.97243527        5.19108716       -6.26880925
+     9   h       0       23.97243527        5.19108716       -6.26880925
+    10   h       0       23.97243527        5.19108716       -6.26880925
+    11   h       0       23.97243527        5.19108716       -6.26880925
+    12   h       0       23.97243527        5.19108716       -6.26880925
+$end
